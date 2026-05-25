@@ -365,35 +365,38 @@
         </section>
 
         <section id="tienda">
-            <h2>Catálogo y Tienda Virtual (Muebles de Línea)</h2>
-            <p style="margin-bottom: 20px; color: #555;">Haz clic en las estrellas para registrar tu valoración del mueble o usa el botón para simular una cotización en base de datos.</p>
-            
-            <div class="tienda-grid">
-                <script>
-                    const productos = [
-                        "Comedor de Roble Imperial", "Silla Ergonómica de Parota", "Mesa de Centro Rústica", "Librero Modular Ejecutivo", 
-                        "Cama King Size Roble", "Buró Minimalista Madera", "Alacena Completa de Cedro", "Mesa para Jardín Tratada",
-                        "Escritorio Home Office", "Repisas Flotantes (Set x3)", "Archivero de Oficina Pesado", "Puerta Principal de Caoba",
-                        "Consola de Recibidor Elegante", "Banco Alto para Barra", "Perchero de Entrada Roble", "Mesa de Noche Vintage",
-                        "Centro de Entretenimiento TV", "Cuna Convertible Premium", "Baúl de Almacenamiento Antiguo", "Isla de Cocina Movible"
-                    ];
+    <h2>Catálogo y Tienda Virtual</h2>
+    <p>Haz clic en las estrellas para valorar nuestros muebles:</p>
+    
+    <div class="tienda-grid">
+        <script>
+            // Función para manejar la valoración
+            function valorar(producto, estrellas) {
+                alert('¡Gracias por calificar ' + producto + ' con ' + estrellas + ' estrellas!');
+            }
 
-                    productos.forEach((prod, index) => {
-                        document.write(`
-                            <div class="item-producto">
-                                <div class="img-placeholder">Prod #${index + 1}</div>
-                                <h4>${prod}</h4>
-                                <div class="stars" onclick="alert('¡Gracias por tu valoración de ${index + 1} estrellas en este producto!')">
-                                    ★★★★★
-                                </div>
-                                <p class="precio">$${((index + 1) * 1450).toLocaleString('es-MX', {minimumFractionDigits: 2})} MXN</p>
-                                <button class="btn-cotizar" onclick="alert('Iniciando Cotizador Express para: ${prod}. Presupuesto estimado generado.')">Cotizar / Comprar</button>
-                            </div>
-                        `);
-                    });
-                </script>
-            </div>
-        </section>
+            const productos = ["Comedor de Roble Imperial", "Silla Ergonómica de Parota", "Mesa de Centro Rústica", "Librero Modular", "Cama King Size", "Buró Minimalista", "Alacena de Cedro", "Mesa para Jardín", "Escritorio Home Office", "Repisas Flotantes", "Archivero", "Puerta de Caoba", "Consola Elegante", "Banco Alto", "Perchero Roble", "Mesa de Noche", "Centro de TV", "Cuna Premium", "Baúl Antiguo", "Isla de Cocina"];
+
+            productos.forEach((prod, index) => {
+                document.write(`
+                    <div class="item-producto">
+                        <div class="img-placeholder">Producto ${index + 1}</div>
+                        <h4>${prod}</h4>
+                        <div class="stars">
+                            <span onclick="valorar('${prod}', 1)">★</span>
+                            <span onclick="valorar('${prod}', 2)">★</span>
+                            <span onclick="valorar('${prod}', 3)">★</span>
+                            <span onclick="valorar('${prod}', 4)">★</span>
+                            <span onclick="valorar('${prod}', 5)">★</span>
+                        </div>
+                        <p class="precio">$${((index + 1) * 1200).toLocaleString()} MXN</p>
+                        <button class="btn-cotizar">Cotizar</button>
+                    </div>
+                `);
+            });
+        </script>
+    </div>
+</section>
 
         <section id="faqs">
             <h2>Sección de Preguntas Frecuentes</h2>
@@ -464,7 +467,7 @@
     </div>
 
     <footer class="social-bar">
-        <p>© 2026 Carpintería El Roble - Proyecto de Desarrollo de Sistemas Web UDGVirtual</p>
+        <p>© 2026 Carpintería Los Robles - Proyecto de Desarrollo de Sistemas Web UDGVirtual</p>
         <div class="social-links" style="margin-top: 10px;">
             <a href="https://facebook.com" target="_blank">Facebook Organizacional</a> | 
             <a href="https://instagram.com" target="_blank">Instagram de Diseños</a> | 
